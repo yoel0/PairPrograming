@@ -1,0 +1,26 @@
+-- What we are doing right now is defining a function
+-- Henceforth rs (runningSums), it is a function that when called with an empty list
+-- will return an empty list.
+-- This is an example of Pattern Matching [] = [].
+-- This first defnition is going to be our base case.
+rs [] sum = []
+-- On the left hand side of the = is where our parameters go.
+-- Everything inside the parens will be our list, but we are taking out the head and the tail of the list
+-- In Haskell 
+-- The Head = first element, 
+-- The Tail = excluding the head, all elements including the last. 
+-- The Last = last element.
+-- The Init = excluding the last, all elements including the head.
+-- h = head, t = tail.
+-- : in Haskell can be thought of as Prepend this value to this list [].
+-- : can also be used to seperate values within an argument / parameter.
+-- If : on the left hand side of = we are seperating it / pulling it apart.
+-- If : on the right hand side of the = we are Prepending / adding to.
+rs (h:t) sum = (sum+h): rs (t) (sum+h) -- <- We are going to Prepend rs+h to the recursive call (rs) 
+                                          -- where the tail continually shrinks by 1 who's ultimate result will be an empty list.
+                                          -- Example of what is actually happening (1+0) : (1+2) : (3+3) : (4+6) : (5+10) : []
+                                          -- Should return [1,3,6,10,15]
+                                          -- You can see each call is recursive, at the end of the recursion what is left
+                                          -- A chain of functions to be executed.
+-- We are recursing through and on every recursion we want to take the sum and add it to the current each time.
+-- In Haskel everything is immutable we have to create a new list and use the new list. 
