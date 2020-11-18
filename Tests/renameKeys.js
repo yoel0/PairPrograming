@@ -20,3 +20,5 @@ const keyNameChange = (treasureMap, obj) => {
 
   return result;
 };
+
+const obj = { name: 'Rupert', job: 'Whiskey', age: 34, status: 'Married', income: '250lbs'}
